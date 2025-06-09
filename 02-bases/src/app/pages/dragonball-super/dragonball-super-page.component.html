@@ -1,0 +1,34 @@
+<h1>DragonBall Page</h1>
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+    <h3>Add: {{ name() }}</h3>
+    <input
+      type="tex"
+      class="form-control"
+      placeholder="Name"
+      [value]="name()"
+      (change)="name.set(txtName.value)"
+      (input)="name.set(txtName.value)"
+      #txtName
+    />
+
+    <input
+      type="number"
+      class="form-control mt-2"
+      placeholder="Power"
+      [value]="power()"
+      (input)="power.set(+txtPower.value)"
+      #txtPower
+    />
+
+    <button (click)="addCharacter()" class="mt-2 btn btn-primary">Add</button>
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <dragonball-character-list
+      listName="Listado de personajes"
+      [characters]="characters()"
+    />
+  </div>
+</section>
